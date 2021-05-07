@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DogFriends</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="imagens/iconeAba.png">
+		
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+		integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	
+	</head>
+	
+	<body>
+		<div id="menu">
+			<ul>
+				<form action="../Controller/Login.php" method="post">
+					<li><img src="imagens/logoMenu.png" width="100%"/></li>
+					<li><input class="c" type="text"   placeholder= "Nome" name="nome"></li>
+					<li><input class="c" type="password" placeholder= "Senha"  name="senha"></li>
+					<li><input type="submit" class="btn btn-light"></li>
+				</form>
+				
+			</ul>
+		</div>
+		<div id="cadastro">
+			<h1>Cadastre Seu Cachorrinho</h1><br>
+			<div class="row">
+	        	<div class="col-md-6"> 
+		        	<form method="post" action="../Controller/Cadastro.php" id="usrform"><br>
+						<input type="text"  placeholder= "Nome"   name="nome"></br></br>
+						<input type="password"  placeholder= "Senha"  name="senha"></br></br>
+						<input type="text"  placeholder= "Raça"   name="raca"></br></br>
+						<input type="text"  placeholder= "Telefone"   name="telefone"></br></br>
+						<label>Data de Nascimento</label>
+						<input id="data" type ="date" name="data"/><br><br>
+						<textarea id="descricao" name="descricao"  form="usrform" placeholder="Escreva aqui uma breve apresentação."></textarea>
+					
+	        	</div>	  
+			    <div class="col-md-6"> 
+						Coloque uma foto:</br>
+						<img id="uploadPreview" style="width: 120px; height: 100px;" /></br>
+						<input id="uploadImage" type="file" name="foto" onchange="PreviewImage();" />
+					
+						<script type="text/javascript">
+							function PreviewImage() {
+								var oFReader = new FileReader();
+								oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+								oFReader.onload = function (oFREvent) {
+									document.getElementById("uploadPreview").src = oFREvent.target.result;
+								};
+						    };
+						</script>
+						<br><br>			
+						<label for="sexo">Sexo:</label></br>
+						<input class="a" type="radio" name="sexo" value="femea" checked>Fêmea
+						<input class="a" type="radio" name="sexo" value="macho">Macho<br><br>
+						<input type="submit" value="Cadastrar"></br>
+					</form>
+			  	</div>
+			 </div>
+		</div>
+	</body>
+</html>
+
+
